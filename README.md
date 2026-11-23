@@ -57,15 +57,12 @@ O `pandas` precisa vir do `pkg` (compilar via `pip` no Android raramente
 funciona). O venv é criado com `--system-site-packages` para herdá-lo.
 
 ```bash
-pkg install python python-pandas
-# opcionais, por formato:
-pkg install python-pyarrow       # .parquet
-pkg install python-openpyxl      # .xlsx (ou pip install openpyxl)
+pkg install python python-pandas python-pyarrow
 
 cd ~/indatapilot
 python -m venv .venv --system-site-packages
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev,xlsx]"
 ```
 
 Se o Python do Termux não exportar símbolos que extensões C esperam, use
