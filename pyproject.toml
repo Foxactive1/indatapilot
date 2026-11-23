@@ -1,0 +1,25 @@
+[project]
+name = "indatapilot"
+version = "0.2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "typer>=0.12",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev     = ["pytest>=8.0"]
+xlsx    = ["openpyxl>=3.1"]
+parquet = ["pyarrow>=14.0"]
+all     = ["openpyxl>=3.1", "pyarrow>=14.0"]
+kuzu = ["kuzu>=0.6"]  
+[project.scripts]
+indatapilot = "indatapilot.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
